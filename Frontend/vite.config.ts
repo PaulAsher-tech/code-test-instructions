@@ -6,6 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
+    // Proxy API requests to backend during development
+    // Frontend makes requests to /api/* which are proxied to http://localhost:8080/*
     proxy: {
       '/api': {
         target: 'http://localhost:8080',

@@ -1,11 +1,25 @@
 import { ApiError, ShortenRequest, ShortenResponse, UrlItem } from '../types'
 
+/**
+ * Gets the API base URL based on environment.
+ * 
+ * In development: Uses Vite dev proxy (/api -> http://localhost:8080)
+ * In production: Uses VITE_API_BASE_URL env var, or empty string for same-origin
+ */
 function getApiBaseUrl(): string {
-  if (import.meta.env.DEV) {
+  // Check if we're in development mode (Vite sets MODE to 'development' in dev)
+  // Type assertion needed because TypeScript doesn't always recognize Vite's env types
+  const env = (import.meta as any).env as { MODE: string; VITE_API_BASE_URL?: string }
+  const isDev = env.MODE === 'development'
+  
+  if (isDev) {
     // Use Vite dev proxy (configured in vite.config.ts)
+    // Requests to /api/* are proxied to http://localhost:8080/*
     return '/api'
   }
-  const base = (import.meta as any).env?.VITE_API_BASE_URL || (globalThis as any).VITE_API_BASE_URL || ''
+  
+  // Production: Use VITE_API_BASE_URL if set, otherwise assume same origin
+  const base = env.VITE_API_BASE_URL || ''
   return base
 }
 
