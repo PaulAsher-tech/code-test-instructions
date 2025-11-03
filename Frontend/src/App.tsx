@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import ShortenForm from './components/ShortenForm'
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
         <h1>URL Shortener</h1>
       </header>
       <main>
-        <p>Frontend implementation in progress...</p>
+        <ShortenForm />
       </main>
     </div>
   )

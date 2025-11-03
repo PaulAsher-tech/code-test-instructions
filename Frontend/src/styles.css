@@ -37,3 +37,143 @@ main {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+/* Form Styles */
+.shorten-form h2 {
+  margin-bottom: 24px;
+  color: #2c3e50;
+  font-size: 1.75rem;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #333;
+}
+
+.required {
+  color: #e74c3c;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #3498db;
+}
+
+.form-group input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.form-group input[aria-invalid='true'] {
+  border-color: #e74c3c;
+}
+
+.help-text {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.error-message {
+  margin-bottom: 16px;
+  padding: 12px;
+  background-color: #fee;
+  border: 1px solid #e74c3c;
+  border-radius: 4px;
+  color: #e74c3c;
+  font-size: 0.875rem;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 12px 24px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.submit-button:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+/* Result Styles */
+.result {
+  margin-top: 24px;
+  padding: 16px;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+  border-left: 4px solid #27ae60;
+}
+
+.result-label {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #2c3e50;
+}
+
+.result-url {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.result-url a {
+  flex: 1;
+  min-width: 200px;
+  color: #3498db;
+  text-decoration: none;
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.result-url a:hover {
+  text-decoration: underline;
+}
+
+.copy-button {
+  padding: 8px 16px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.copy-button:hover {
+  background-color: #229954;
+}
+
+.copy-button:active {
+  transform: scale(0.98);
+}
+
