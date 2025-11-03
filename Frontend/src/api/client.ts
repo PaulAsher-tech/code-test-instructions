@@ -4,7 +4,7 @@ import { ApiError, ShortenRequest, ShortenResponse, UrlItem } from '../types'
  * Gets the API base URL based on environment.
  * 
  * In development: Uses Vite dev proxy (/api -> http://localhost:8080)
- * In production: Uses VITE_API_BASE_URL env var, or empty string for same-origin
+ * In production: Uses VITE_API_BASE_URL env var if set, otherwise uses /api (nginx proxy)
  */
 function getApiBaseUrl(): string {
   // Check if we're in development mode (Vite sets MODE to 'development' in dev)
@@ -18,8 +18,8 @@ function getApiBaseUrl(): string {
     return '/api'
   }
   
-  // Production: Use VITE_API_BASE_URL if set, otherwise assume same origin
-  const base = env.VITE_API_BASE_URL || ''
+  // Production: Use VITE_API_BASE_URL if set, otherwise use /api (nginx will proxy to backend)
+  const base = env.VITE_API_BASE_URL || '/api'
   return base
 }
 
