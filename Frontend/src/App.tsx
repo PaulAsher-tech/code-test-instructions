@@ -1,4 +1,5 @@
 import ShortenForm from './components/ShortenForm'
+import UrlTable from './components/UrlTable'
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       </header>
       <main>
         <ShortenForm />
+        <div className="section-gap" />
+        <UrlTable />
       </main>
     </div>
   )
